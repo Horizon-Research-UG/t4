@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plusrechnen Time Quest - NeuroGames</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hintergrund Wolken Animation -->
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+    <!-- Haupt Container -->
+    <div class="game-container">
+        
+        <!-- Titel und Logo Bereich -->
+        <div class="header">
+            <h1 class="game-title">🧮 Plusrechnen Time Quest</h1>
+            <p class="subtitle">Addiere so schnell du kannst!</p>
+        </div>
+
+        <!-- Auswahlmenü für Spieleinstellungen -->
+        <div id="menu-screen" class="screen active">
+            <div class="menu-card">
+                <h2>🎮 Schnelles Spiel starten</h2>
+                
+                <!-- Mana Einstellung (Zahlenbereich) -->
+                <div class="setting-group">
+                    <label for="mana-input">🔢 Mana (Zahlenbereich 0 bis):</label>
+                    <input type="number" id="mana-input" min="1" max="20" value="5" class="number-input">
+                    <div class="setting-info">Zahlen von 0 bis zu diesem Wert</div>
+                </div>
+
+                <!-- Erdklumpen Einstellung (Anzahl Zahlen) -->
+                <div class="setting-group">
+                    <label for="erdklumpen-input">🪨 Erdklumpen (Anzahl Zahlen):</label>
+                    <input type="number" id="erdklumpen-input" min="2" max="8" value="4" class="number-input">
+                    <div class="setting-info">Wie viele Zahlen sollen addiert werden?</div>
+                </div>
+
+                <!-- Start Button -->
+                <button id="start-game-btn" class="start-button">🚀 Spiel starten!</button>
+            </div>
+
+            <!-- Highscore Anzeige im Menü -->
+            <div class="highscore-display">
+                <h3>🏆 Session Highscores</h3>
+                <div id="highscore-list">Noch keine Spiele gespielt...</div>
+            </div>
+        </div>
+
+        <!-- Spiel Bildschirm -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="stats">
+                    <div class="stat">⚡ Aufgabe: <span id="current-task">1</span></div>
+                    <div class="stat">⏱️ Zeit: <span id="game-timer">0s</span></div>
+                    <div class="stat">🎯 Richtig: <span id="correct-count">0</span></div>
+                </div>
+                <button id="back-to-menu-btn" class="back-button">🔙 Zurück zum Menü</button>
+            </div>
+
+            <!-- Spielfeld mit Aufgabe -->
+            <div class="game-field">
+                <!-- Zahlen Display -->
+                <div class="numbers-display">
+                    <div id="numbers-to-add" class="numbers-container"></div>
+                    <div class="equals-sign">=</div>
+                    <div class="question-mark">❓</div>
+                </div>
+
+                <!-- Antwort Eingabe -->
+                <div class="answer-section">
+                    <input type="number" id="answer-input" class="answer-input" placeholder="Deine Antwort...">
+                    <button id="submit-answer-btn" class="submit-button">✅ Prüfen</button>
+                </div>
+
+                <!-- Feedback Bereich für Animationen -->
+                <div id="feedback-area" class="feedback-area"></div>
+            </div>
+        </div>
+
+        <!-- Spiel Beendet Bildschirm -->
+        <div id="game-over-screen" class="screen">
+            <div class="game-over-card">
+                <h2>🎉 Spiel beendet!</h2>
+                <div class="final-stats">
+                    <div class="final-stat">⏱️ Gesamtzeit: <span id="final-time">0s</span></div>
+                    <div class="final-stat">🎯 Richtige Antworten: <span id="final-correct">0</span></div>
+                    <div class="final-stat">🔢 Aufgaben gelöst: <span id="final-tasks">0</span></div>
+                </div>
+                <button id="play-again-btn" class="play-again-button">🔄 Nochmal spielen</button>
+                <button id="new-settings-btn" class="new-game-button">⚙️ Neue Einstellungen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript für Spiellogik -->
+    <script src="script.js"></script>
+</body>
+</html>
